@@ -1,0 +1,142 @@
+table {
+    border-collapse: separate;
+}
+.sample {
+    padding: 20px;
+    width: 100%;
+    background-color: #FF9900;
+}
+.bitmosaic {
+    width: 100%;
+    background-color: #3c3c3c;
+    border: 1px solid #333;
+    border-spacing: 1px;
+}
+
+tr {
+    margin: 10px;
+}
+td {
+    width: 20%;
+    position: relative;
+    margin: 10px;
+}
+td:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+}
+.content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+.frame {
+    background-color:  #333;
+    color: white;
+}
+span .frameText {
+    visibility: visible;
+}
+span .dataText {
+    visibility: visible;
+}
+.data {
+    background-color: #F2F2F2;
+    color: #000;
+    text-align: center;
+}
+#secret-list-inline {
+    list-style: none;
+    padding: 0;
+}
+#secret-list-inline > li {
+    display: inline;
+}
+#domain-list-inline {
+    list-style: none;
+    padding: 0;
+}
+#domain-list-inline > li {
+    display: inline;
+}
+.tag-item {
+    margin: 2px 5px;
+    padding: 3px 3px 5px 4px;
+    border: 1px solid #666;
+    color: #666;
+    display:inline-block;
+    border-radius: 4px;
+}
+.remove-button {
+    padding: 0 4px 2px 4px;
+    margin-left: 4px;
+    text-decoration:none;
+    border: 1px solid #fc2222;
+    color: #fc2222;
+    border-radius: 4px;
+}
+.remove-button:hover {
+    background-color: #fc2222;
+    color: #f2f2f2;
+}
+#content-background-type-image {
+    margin-top: 8px;
+    display: block;
+}
+#content-background-type-palette {
+    margin-top: 8px;
+    display: none;
+}
+#file-recovery {
+    display: block;
+}
+#manual-recovery {
+    display: none;
+}
+#data-domain-file {
+    display: block;
+}
+#data-domain-regex {
+    display: none;
+}
+#square-content-border-color {
+    width: 60%;
+    height: 0;
+    padding-top: 60%;
+    background-color: #333333;
+    border-radius: 50%;
+}
+#square-content-background-color {
+    width: 60%;
+    height: 0;
+    padding-top: 60%;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+#square-frame-text-color {
+    width: 60%;
+    height: 0;
+    padding-top: 60%;
+    background-color: #F2F2F2;
+    border-radius: 50%;
+}
+#square-frame-background-color {
+    width: 60%;
+    height: 0;
+    padding-top: 60%;
+    background-color: #3C3C3C;
+    border-radius: 50%;
+}
+#square-margin-color {
+    width: 60%;
+    height: 0;
+    padding-top: 60%;
+    background-color: #FF9900;
+    border-radius: 50%;
+}

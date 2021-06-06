@@ -1,0 +1,1186 @@
+<!--  
+  Copyright 2021 by @bitmosaic <bitmosaic@protonmail.com>
+  
+  index.html is part of Bitmosaic.
+  
+  Bitmosaic is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  
+  Bitmosaic is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with BitmosaicI.  If not, see <https://www.gnu.org/licenses/>. 
+ -->
+
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="robots" content="index, follow" />
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+
+	<script type="text/javascript" src="/eel.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?300">
+	<link rel="stylesheet" type="text/css" href="style.css?7772">
+	<link rel="stylesheet" type="text/css" href="./css/animate.min.css?2687">
+	<link rel="stylesheet" type="text/css" href="./css/bitmosaic-sample.css?1212">
+
+	<title>Bitmosaic: your secrets in pixel art</title>
+</head>
+
+<body>
+	<div id="page-loading-blocs-notifaction" class="page-preloader"></div>
+	<div class="page-container">
+		<div class="bloc bgc-orange-ryb b-divider none l-bloc" id="bloc-0">
+			<div class="container bloc-sm-lg bloc-sm-sm bloc-sm">
+				<div class="row voffset-clear-sm">
+					<div class="col-lg-1 col-md-2 col-sm-2">
+						<img src="img/bitmosaic-64.png" class="img-fluid img-protected img-bloc-0-style float-lg-right"
+							alt="bitmosaic logo" />
+					</div>
+					<div class="align-self-center col-lg-7 col-md-6 col-sm-8">
+						<h2 class="mg-clear text-center text-md-left tc-splashed-white float-lg-none h2-style">
+							<strong>Bitmosaic.org</strong>
+						</h2>
+					</div>
+					<div class="col-lg-3 col-md-4 align-self-center col-sm-12">
+						<a href="#"
+							class="btn btn-block animated flash-hvr btn-lg btn-splashed-white btn-bloc-0-style btn-clean"
+							id="create-bitmosaic" onclick="createBitmosaic()">Create bitmosaic</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bloc l-bloc" id="bloc-1">
+			<div class="container bloc-lg bloc-sm-lg">
+				<div class="row">
+					<div class="col">
+						<ul class="nav nav-tabs" id="nav-24821-tab" role="tablist">
+							<li class="nav-item">
+								<a class="a-btn nav-link active ltc-orange-ryb animated flash-hvr link-style"
+									id="nav-24821-tab-1" data-toggle="tab" href="#nav-24821-content-0" role="tab"
+									aria-controls="nav-24821-content-0" aria-selected="true">Mosaic Setup</a>
+							</li>
+							<li class="nav-item">
+								<a class="a-btn nav-link ltc-orange-ryb animated flash-hvr link-style"
+									id="nav-24821-tab-1" data-toggle="tab" href="#nav-24821-content-1" role="tab"
+									aria-controls="nav-24821-content-1" aria-selected="true">Secret Setup</a>
+							</li>
+							<li class="nav-item">
+								<a class="a-btn nav-link ltc-orange-ryb animated flash-hvr link-image-setup-style"
+									id="nav-24821-tab-2" data-toggle="tab" href="#nav-24821-content-2" role="tab"
+									aria-controls="nav-24821-content-2" aria-selected="false">Image Setup</a>
+							</li>
+							<li class="nav-item">
+								<a class="a-btn nav-link ltc-coral-pink animated flash-hvr link-bloc-1-style"
+									id="nav-24821-tab-3" data-toggle="tab" href="#nav-24821-content-3" role="tab"
+									aria-controls="nav-24821-content-3" aria-selected="false">Secret Recovery</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="nav-24821-content-0" role="tabpanel"
+								aria-labelledby="nav-24821-content-0">
+								<div class="container bloc-sm-sm bloc-sm bloc-sm-lg">
+									<div class="row voffset">
+										<div class="col-12 col-lg-7">
+											<div class="card">
+												<div class="card-header">
+													<h4 class="mg-clear">
+														Data domain
+													</h4>
+												</div>
+												<div class="card-body">
+													<div class="row">
+														<div class="col-12 col-md-12">
+															<div class="form-group">
+															<label>
+																<strong>Type</strong>
+															</label>
+														</div>
+														<select class="form-control" id="data-domain-type"
+															onchange="dataDomainTypeChanged()">
+															<option value="0">
+																File
+															</option>
+															<option value="1">
+																Regular Expression
+															</option>
+														</select>
+
+														</div>
+													</div>
+
+													<div class="row voffset-sm voffset" id="data-domain-file">
+														<div class="col-lg-12 col-12">
+															<div class="row">
+															<div class="col-lg-10 col-md-10 col-sm-10">
+															<p>
+																The data domain contains all possible values your secret
+																can take. You can select multiple data
+																domains.<br><br>The data domain files must be placed
+																at:&nbsp;&nbsp;<br><br>app directory -> data -> domains<br>
+															</p>
+															</div>
+														<div class="offset-md-0 offset-sm-0 col-lg-2 col-md-2 col-sm-2">
+															<a href="#"
+																class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																id="select-domain"
+																onclick="addDataDomainFile()">Select<br></a>
+														</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="row voffset-sm voffset" id="data-domain-regex">
+															<div class="col-lg-12 col-12">
+																<label class="label-style">
+																	<strong>Regular expression</strong>
+																</label>
+																<div class="row">
+																	<div class="col-lg-10 col-md-10 col-sm-10">
+																		<div class="row row-style voffset-clear-xs">
+																			<div
+																				class="offset-lg-0 col-lg-10 col-md-10 col-sm-10 offset-0">
+																				<input class="form-control"
+																					type="text"
+																					id="regex" />
+																			</div>
+																		</div>
+																	</div>
+																	<div class="offset-md-0 offset-sm-0 col-lg-2 col-md-2 col-sm-2">
+																	<a href="#"
+																		class="btn float-lg-right btn-sm float-sm-right float-right btn-dodger-blue animated flash-hvr"
+																		id="add-regex-domain"
+																		onclick="addDataDomainRegex()">Add</a>
+																</div>
+																</div>
+															</div>
+														</div>
+
+
+													<div class="row voffset-sm voffset">
+														<div class="col-sm-9 col-md-10 col-lg-10">
+															<div>
+																<div>
+																	<ul id="domain-list-inline">
+																		<li><span class="tag-item">bip-0039_english.txt<a
+																					href="#" class="remove-button"
+																					onclick="removeDomain('_bip-0039_english.txt_')">x</a></span>
+																		</li>
+																	</ul>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="divider-h">
+												<span class="divider divider-half"></span>
+											</div>
+											<div class="card">
+												<div class="card-header">
+													<h4 class="mg-clear">
+														Max size (cols x rows)
+													</h4>
+												</div>
+												<div class="card-body">
+													<div class="row voffset-sm">
+														<div class="col-lg-12 col-12">
+															<div class="row">
+																<div class="col-md-10 col-sm-9 col-lg-10 col-12">
+																	<div class="row row-style voffset-clear-xs">
+																		<div
+																			class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-lg-5 col-6">
+																			<input class="form-control" type="number"
+																				id="content-size-cols" value="64"
+																				onchange="setMosaicSize()" />
+																		</div>
+																		<div class="col-md-6 col-sm-6 col-lg-5 col-6">
+																			<input class="form-control" type="number"
+																				id="content-size-rows" value="64"
+																				onchange="setMosaicSize()" />
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+												<div class="card-header">
+													<h4 class="mg-clear">
+														Other outputs
+													</h4>
+												</div>
+												<div class="card-body">
+													<div class="row">
+														<div class="col-sm-9 col-md-10 col-lg-12">
+															<div class="form-check">
+																<input class="form-check-input" type="checkbox"
+																	id="output-bitmosaic-text" checked
+																	onchange="setSaveBitmosaicTextFile()" />
+																<label class="form-check-label">
+																	Bitmosaic text file
+																</label>
+															</div>
+															<div class="form-check">
+																<input class="form-check-input" type="checkbox"
+																	id="output-recovery-text" checked
+																	onchange="setSaveRecoveryTextFile()" />
+																<label class="form-check-label">
+																	Recovery info text file
+																</label>
+															</div>
+															<div class="form-check">
+																<input class="form-check-input" type="checkbox"
+																	id="output-recovery-image" checked
+																	onchange="setSaveRecoveryImage()" />
+																<label class="form-check-label">
+																	Recovery image for laser-printing
+																</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="nav-24821-content-1" role="tabpanel"
+								aria-labelledby="nav-24821-content-1">
+								<div class="container bloc-sm-sm bloc-sm bloc-sm-lg">
+									<div class="row voffset">
+										<div class="col-12 col-lg-7" border-right="1px solid black">
+											<div class="card">
+												<div class="card-header">
+													<h4 class="mg-clear">
+														Secret
+													</h4>
+												</div>
+												<div class="card-body">
+													<div class="row voffset-sm">
+														<div class="col">
+															<div class="form-group">
+																<label>
+																	<strong>Name</strong>
+																</label>
+																<input class="form-control" maxlength="32"
+																	id="secret-name" />
+															</div>
+														</div>
+													</div>
+													<div class="row voffset-sm voffset">
+														<div class="col-lg-10">
+															<div class="form-group">
+																<label>
+																	<strong>The secret you want to hide</strong>
+																</label><textarea class="form-control" rows="4"
+																	cols="50" id="secret-data"
+																	placeholder="Each domain item must be separated by spaces, i.e.: for passwords.txt domain you have to write -> m y p a s s w o r d, if your want to hide mypassword"></textarea>
+															</div>
+														</div>
+													</div>
+													<div class="row voffset-sm voffset">
+														<div class="col-lg-12 col-12">
+															<label class="label-style">
+																<strong>Origin (col, row)</strong>
+															</label>
+															<div class="row">
+																<div class="col-md-10 col-sm-9 col-lg-10 col-12">
+																	<div class="row row-style voffset-clear-xs">
+																		<div
+																			class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-lg-5 col-6">
+																			<input class="form-control" type="number"
+																				id="secret-origin-col" value="0" />
+																		</div>
+																		<div class="col-md-6 col-sm-6 col-lg-5 col-6">
+																			<input class="form-control" type="number"
+																				id="secret-origin-row" value="0" />
+																		</div>
+																	</div>
+																</div>
+																<div
+																	class="offset-md-0 offset-sm-0 col-lg-2 col-md-2 col-sm-3">
+																	<a href="#"
+																		class="btn float-lg-right btn-sm float-sm-right float-right btn-dodger-blue animated flash-hvr"
+																		id="secret-random-origin"
+																		onclick="setRandomOrigin()">Random</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row voffset-sm voffset">
+														<div class="col-sm-9 col-md-10 col-lg-10">
+															<div class="form-group">
+																<label>
+																	<strong>Components</strong>
+																</label><textarea class="form-control" rows="4"
+																	cols="50"
+																	placeholder="Use this format:  a:0 b:1 c:2"
+																	id="secret-components"></textarea>
+															</div>
+														</div>
+														<div class="col-lg-2 align-self-center col-md-2 col-sm-3">
+															<a href="#"
+																class="btn float-lg-right btn-sm float-sm-right float-right btn-dodger-blue animated flash-hvr"
+																id="secret-random-components"
+																onclick="setRandomComponents()">Random</a>
+														</div>
+													</div>
+												</div>
+												<div class="card-footer">
+													<div class="row">
+														<div class="col">
+															<div class="row">
+																<div class="col">
+																	<a href="#"
+																		class="btn btn-block btn-lg btn-orange-ryb animated flash-hvr btn-add-secret-style"
+																		id="secret-save" onclick="addSecret()">Add
+																		secret</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="card">
+												<div class="card-header">
+													<h4 class="mg-clear">
+														Vault
+													</h4>
+												</div>
+												<div class="card-body">
+													<p>
+														This is a list of secrets you have added. You can hide multiple
+														secrets into a single bitmosaic.
+													</p>
+													<div class="row voffset-xs">
+														<div class="col-sm-9 col-md-10 col-lg-12">
+															<div>
+																<ul id="secret-list-inline">
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade-tab-bs" id="nav-24821-content-2" role="tabpanel"
+								aria-labelledby="nav-24821-content-2">
+								<div class="container bloc-sm-sm bloc-sm bloc-sm-lg">
+									<div class="row voffset">
+										<div class="col-lg-7">
+											<div class="row voffset-sm">
+												<div class="col">
+													<ul class="nav nav-tabs" id="nav-38421-tab" role="tablist">
+														<li class="nav-item">
+															<a class="a-btn nav-link active" id="nav-38421-tab-1"
+																data-toggle="tab" href="#nav-38421-content-1" role="tab"
+																aria-controls="nav-38421-content-1"
+																aria-selected="true">Content Setup</a>
+														</li>
+														<li class="nav-item">
+															<a class="a-btn nav-link" id="nav-38421-tab-2"
+																data-toggle="tab" href="#nav-38421-content-2" role="tab"
+																aria-controls="nav-38421-content-2"
+																aria-selected="false">Frame Setup</a>
+														</li>
+														<li class="nav-item">
+															<a class="a-btn nav-link" id="nav-38421-tab-3"
+																data-toggle="tab" href="#nav-38421-content-3" role="tab"
+																aria-controls="nav-38421-content-3"
+																aria-selected="false">Margin Setup</a>
+														</li>
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane fade-tab-bs show active"
+															id="nav-38421-content-1" role="tabpanel"
+															aria-labelledby="nav-38421-content-1">
+															<div class="card">
+																<div class="card-body">
+																	<div class="row voffset">
+																		<div class="col">
+																			<div class="form-check">
+																				<input class="form-check-input"
+																					type="checkbox" checked="checked"
+																					id="content-show-coordinates"
+																					onchange="setMosaicShowCoordinates()" />
+																				<label class="form-check-label">
+																					Show coordinates
+																				</label>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row voffset-sm voffset voffset-xs">
+																		<div class="col-6 col-md-4 col-sm-4">
+																			<div class="form-group">
+																				<label>
+																					<strong>DPI</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" maxlength="4"
+																					id="content-dpi" value="150"
+																					onchange="setMosaicDpi()" />
+																			</div>
+																		</div>
+																		<div class="col">
+																			<div class="form-group">
+																				<label>
+																					<strong>Tessera side</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" maxlength="4"
+																					id="content-tessera-side"
+																					value="150"
+																					onchange="setMosaicTesseraSide()" />
+																			</div>
+																		</div>
+																		<div class="col">
+																			<div class="form-group">
+																				<label>
+																					<strong>Border width</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" maxlength="3"
+																					id="content-border-width" value="1"
+																					onchange="setMosaicBorderWidth() " />
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row voffset-sm">
+																		<div class="col-sm-9 col-md-10 col-lg-10">
+																			<div class="row">
+																				<div class="align-self-start col-lg-12">
+																					<label class="label-label-style">
+																						<strong>Border color</strong>
+																					</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-7 col-sm-6 col-9">
+																					<input class="form-control"
+																						id="content-border-color"
+																						value="#333333" />
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-2 col-sm-2 col-3">
+																					<div
+																						id="square-content-border-color">
+																					</div>
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-3 col-sm-4">
+																					<div class="form-check">
+																						<input class="form-check-input"
+																							type="checkbox"
+																							id="content-random-border-color" />
+																						<label class="form-check-label">
+																							Random
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div
+																			class="col-lg-2 align-self-end col-md-2 col-sm-3">
+																			<a href="#"
+																				class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																				id="content-border-color-update"
+																				onclick="setMosaicBorderColor()">Update<br></a>
+																		</div>
+																	</div>
+																	<div class="row voffset voffset-sm">
+																		<div class="col">
+																			<div>
+																				<label>
+																					<strong>Background type</strong>
+																				</label>
+																				<select class="form-control"
+																					id="content-background-type"
+																					onchange="mosaicBackgroundTypeChanged()">
+																					<option value="0">
+																						Image
+																					</option>
+																					<option value="1">
+																						Palette
+																					</option>
+																				</select>
+																			</div>
+																		</div>
+																	</div>
+																	<div id="content-background-type-image">
+																		<div class="row voffset voffset-sm">
+																			<div class="col-lg-10 col-md-10 col-sm-10">
+																				<p>
+																					The images should be placed
+																					in:<br><br>app directory ->
+																					bitmosaic -> gui -> bitmosaic_images
+																				</p>
+																				<h5 class="mg-md"
+																					id="content-background-image-name">
+																					No image selected
+																				</h5>
+																			</div>
+																			<div class="align-self-center col-sm-2">
+																				<a href="#"
+																					class="btn btn-sm float-lg-right btn-dodger-blue float-md-right"
+																					id="content-select-background-image"
+																					onclick="setMosaicBackgroundImage()">Select</a>
+																			</div>
+																		</div>
+																	</div>
+																	<div id="content-background-type-palette">
+																		<div class="row voffset-sm voffset">
+																			<div class="col-lg-12 col-12">
+																				<label class="label-style">
+																					<strong>Number of colors</strong>
+																				</label>
+																				<div class="row row-bloc-1-style">
+																					<div
+																						class="col-md-10 col-sm-9 col-7 col-lg-12">
+																						<div
+																							class="row row-style voffset-clear-xs">
+																							<div
+																								class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-12 col-lg-5">
+																								<input
+																									class="form-control"
+																									id="content-palette-number-of-colors"
+																									type="number"
+																									value="5"
+																									onchange="setMosaicPaletteColors()" />
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="row voffset voffset-sm voffset-xs">
+																			<div class="col-sm-9 col-md-10 col-lg-10">
+																				<div class="row">
+																					<div
+																						class="align-self-start col-lg-12">
+																						<label
+																							class="label-label-style">
+																							<strong>Background
+																								color</strong>
+																						</label>
+																					</div>
+																				</div>
+																				<div class="row">
+																					<div
+																						class="col-md-7 col-sm-6 col-9">
+																						<input class="form-control"
+																							id="content-background-color"
+																							value="#FFFFFF" />
+																					</div>
+																					<div
+																						class="align-self-start col-lg-2 col-md-2 col-sm-2 col-3">
+																						<div
+																							id="square-content-background-color">
+																						</div>
+																					</div>
+																					<div
+																						class="align-self-start col-lg-2 col-md-3 col-sm-4">
+																						<div class="form-check">
+																							<input
+																								class="form-check-input"
+																								type="checkbox"
+																								id="content-random-background-color" />
+																							<label
+																								class="form-check-label">
+																								Random
+																							</label>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div
+																				class="col-lg-2 align-self-end col-md-2 col-sm-3">
+																				<a href="#"
+																					class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																					id="content-background-color-update"
+																					onclick="setMosaicPaletteColors()">Update<br></a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane fade-tab-bs" id="nav-38421-content-2"
+															role="tabpanel" aria-labelledby="nav-38421-content-2">
+															<div class="card">
+																<div class="card-body">
+																	<div class="row">
+																		<div class="col">
+																			<div class="form-check">
+																				<input class="form-check-input"
+																					type="checkbox" checked="checked"
+																					id="frame-add"
+																					onchange="setFrame()" />
+																				<label class="form-check-label">
+																					Add frame to bitmosaic
+																				</label>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row voffset"
+																		id="frame-show-indexes-row">
+																		<div class="col">
+																			<div class="form-check">
+																				<input class="form-check-input"
+																					type="checkbox" checked="checked"
+																					id="frame-show-indexes"
+																					onchange="setFrameTextVisibility()" />
+																				<label class="form-check-label">
+																					Show column and row index
+																				</label>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row voffset voffset-xs"
+																		id="frame-text-color-row">
+																		<div class="col-sm-9 col-md-10 col-lg-10">
+																			<div class="row voffset-sm">
+																				<div class="align-self-start col-lg-12">
+																					<label class="label-label-style">
+																						<strong>Text color</strong>
+																					</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-7 col-sm-6 col-9">
+																					<input class="form-control"
+																						id="frame-text-color"
+																						value="#F2F2F2" />
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-2 col-sm-2 col-3">
+																					<div id="square-frame-text-color">
+																					</div>
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-3 col-sm-4">
+																					<div class="form-check">
+																						<input class="form-check-input"
+																							type="checkbox"
+																							id="frame-random-text-color" />
+																						<label class="form-check-label">
+																							Random
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div
+																			class="col-lg-2 align-self-end col-md-2 col-sm-3">
+																			<a href="#"
+																				class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																				id="frame-text-color-update"
+																				onclick="setFrameTextColor()">Update<br></a>
+																		</div>
+																	</div>
+																	<div class="row voffset voffset-xs"
+																		id="frame-background-color-row">
+																		<div class="col-sm-9 col-md-10 col-lg-10">
+																			<div class="row">
+																				<div class="align-self-start col-lg-12">
+																					<label class="label-label-style">
+																						<strong>Background
+																							color</strong>
+																					</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-7 col-sm-6 col-9">
+																					<input class="form-control"
+																						id="frame-background-color"
+																						value="#3C3C3C" />
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-2 col-sm-2 col-3">
+																					<div
+																						id="square-frame-background-color">
+																					</div>
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-3 col-sm-4">
+																					<div class="form-check">
+																						<input class="form-check-input"
+																							type="checkbox"
+																							id="frame-random-background-color" />
+																						<label class="form-check-label">
+																							Random
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div
+																			class="col-lg-2 align-self-end col-md-2 col-sm-3">
+																			<a href="#"
+																				class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																				id="frame-background-color-update"
+																				onclick="setFrameBackgroundColor()">Update<br></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="tab-pane fade-tab-bs" id="nav-38421-content-3"
+															role="tabpanel" aria-labelledby="nav-38421-content-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="row">
+																		<div class="col-6 col-sm-3">
+																			<div class="form-group">
+																				<label>
+																					<strong>Top</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" id="margin-top"
+																					value="20"
+																					onchange="updateMargin()" />
+																			</div>
+																		</div>
+																		<div class="col-sm-3">
+																			<div class="form-group">
+																				<label>
+																					<strong>Right</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" id="margin-right"
+																					value="20"
+																					onchange="updateMargin()" />
+																			</div>
+																		</div>
+																		<div class="col-sm-3">
+																			<div class="form-group">
+																				<label>
+																					<strong>Bottom</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" id="margin-bottom"
+																					value="20"
+																					onchange="updateMargin()" />
+																			</div>
+																		</div>
+																		<div class="col-6 col-sm-3">
+																			<div class="form-group">
+																				<label>
+																					<strong>Left</strong>
+																				</label>
+																				<input class="form-control"
+																					type="number" id="margin-left"
+																					value="20"
+																					onchange="updateMargin()" />
+																			</div>
+																		</div>
+																	</div>
+																	<div class="row voffset-xs">
+																		<div class="col-sm-9 col-md-10 col-lg-10">
+																			<div class="row">
+																				<div class="align-self-start col-lg-12">
+																					<label class="label-label-style">
+																						<strong>Color</strong>
+																					</label>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-md-7 col-sm-6 col-9">
+																					<input
+																						class="form-control field-style"
+																						id="margin-color"
+																						value="#FF9900" />
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-2 col-sm-2 col-3">
+																					<div id="square-margin-color"></div>
+																				</div>
+																				<div
+																					class="align-self-start col-lg-2 col-md-3 col-sm-4 col-12">
+																					<div
+																						class="form-check checkbox-style">
+																						<input class="form-check-input"
+																							type="checkbox"
+																							id="margin-color-random" />
+																						<label class="form-check-label">
+																							Random
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div
+																			class="col-lg-2 align-self-end col-md-2 col-sm-3 col-12">
+																			<a href="#"
+																				class="btn float-lg-right btn-sm float-sm-right float-right animated flash-hvr btn-dodger-blue"
+																				id="margin-update"
+																				onclick="setMarginColor()">Update<br></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col">
+											<div>
+												<div class="row voffset-md">
+													<div class="col">
+														<div>
+															<div id="sample-margin" class="sample">
+																<table id="sample-bitmosaic" class="bitmosaic">
+																	<tbody>
+																		<tr>
+																			<td>
+																				<div class="content frame"></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">0</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">1</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">2</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"></div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">0</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">b</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">i</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">t</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">0</span></div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">1</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">m</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">o</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">s</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">1</span></div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">2</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">a</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">i</span></div>
+																			</td>
+																			<td>
+																				<div class="content data"><span
+																						class="dataText">c</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">2</span></div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<div class="content frame"></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">0</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">1</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"><span
+																						class="frameText">2</span></div>
+																			</td>
+																			<td>
+																				<div class="content frame"></div>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="divider-h">
+													<span class="divider divider-half"></span>
+												</div>
+											</div><img src="" data-src=""
+												class="img-fluid img-protected mx-auto d-block lazyload"
+												id="content-background-image" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade-tab-bs container-div-style" id="nav-24821-content-3"
+								role="tabpanel" aria-labelledby="nav-24821-content-3">
+								<div class="row voffset">
+									<div class="col-lg-7">
+										<div class="card card-style">
+											<div class="card-body">
+												<div class="row">
+													<div class="col">
+														<div class="form-group">
+															<label>
+																<strong>Type</strong><br>
+															</label>
+														</div>
+														<select class="form-control" id="recovery-type"
+															onchange="recoveryTypeChanged()">
+															<option value="0">
+																From File
+															</option>
+															<option value="1">
+																Manual
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="row voffset">
+													<div class="col-lg-10 col-md-10 col-sm-10">
+														<p>
+															The bitmosaic.txt file should be placed in:<br><br>app
+															directory -> data -> output
+														</p>
+														<h5 class="mg-md" id="recovery-bitmosaic-file">
+															No bitmosaic file selected
+														</h5>
+													</div>
+													<div class="align-self-center col-sm-2">
+														<a href="#"
+															class="btn btn-sm float-lg-right btn-dodger-blue float-md-right"
+															id="recovery-bitmosaic-select"
+															onclick="setBitmosaicFile()">Select</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="divider-h">
+															<span class="divider divider-half"></span>
+														</div>
+													</div>
+												</div>
+												<div class="row voffset" id="file-recovery">
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="row voffset">
+															<div class="col-lg-10 col-md-10 col-sm-10">
+																<p>
+																	The recovery.txt file should be placed in:<br><br>app
+																	directory -> data -> output
+																</p>
+																<h5 class="mg-md" id="recovery-recovery-file">
+																	No recovery file selected
+																</h5>
+															</div>
+															<div class="align-self-center col-sm-2">
+																<a href="#"
+																	class="btn btn-sm float-lg-right btn-dodger-blue float-md-right"
+																	id="recovery-recovery-select"
+																	onclick="setRecoveryInfoFile()">Select</a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row voffset-sm voffset" id="manual-recovery">
+													<div class="col-lg-12 col-12">
+														<div class="row voffset-sm">
+															<div class="col-lg-12 col-12">
+																<label class="label-style">
+																	<strong>Size (cols x rows)</strong>
+																</label>
+																<div class="row row-bloc-1-style">
+																	<div class="col-md-10 col-sm-9 col-lg-12 col-12">
+																		<div class="row row-style voffset-clear-xs">
+																			<div
+																				class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-lg-5 col-6">
+																				<input
+																					class="form-control field-bloc-1-style"
+																					type="number"
+																					id="recovery-size-cols" />
+																			</div>
+																			<div
+																				class="col-md-6 col-sm-6 col-lg-5 col-6">
+																				<input class="form-control"
+																					type="number"
+																					id="recovery-size-rows" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row voffset-sm voffset">
+															<div class="col-lg-12 col-12">
+																<label class="label-style">
+																	<strong>Origin (col, row)</strong>
+																</label>
+																<div class="row row-bloc-1-style">
+																	<div class="col-md-10 col-sm-9 col-lg-12 col-12">
+																		<div class="row row-style voffset-clear-xs">
+																			<div
+																				class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-lg-5 col-6">
+																				<input class="form-control"
+																					type="number"
+																					id="recovery-origin-col" />
+																			</div>
+																			<div
+																				class="col-md-6 col-sm-6 col-lg-5 col-6">
+																				<input class="form-control"
+																					type="number"
+																					id="recovery-origin-row" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row voffset-sm voffset">
+															<div class="col-sm-9 col-md-10 col-lg-12">
+																<div class="form-group">
+																	<label>
+																		<strong>Components</strong>
+																	</label><textarea class="form-control" rows="4"
+																		cols="50"
+																		placeholder="Use this format:  a:0 b:1 c:2"
+																		id="recovery-components"></textarea>
+																</div>
+															</div>
+														</div>
+														<div class="row voffset-ss voffset">
+															<div class="col-lg-12 col-12">
+																<label class="label-style">
+																	<strong>Recovery length</strong>
+																</label>
+																<div class="row row-bloc-1-style">
+																	<div class="col-md-10 col-sm-9 col-7 col-lg-12">
+																		<div class="row row-style voffset-clear-xs">
+																			<div
+																				class="offset-lg-0 col-md-6 col-sm-6 offset-0 col-12 col-lg-5">
+																				<input class="form-control"
+																					type="number"
+																					id="recovery-length" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="card-footer">
+												<div class="row">
+													<div class="col">
+														<a href="#"
+															class="btn btn-block btn-lg btn-orange-ryb animated flash-hvr btn-add-secret-style"
+															id="recover-secret" onclick="recoverSecret()">Recover your secret</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col ">
+										<h4 class="mg-md">
+											About IPFS
+										</h4>
+										<p class="text-lg-left">
+											Remember you can upload your bitmosaic text file to IPFS, that allows you to
+											save a copy of your bitmosaic in a distributed file system.<br>
+										</p>
+										<p>
+											You can use <a href="https://pinata.cloud" target="_blank" class="ltc-orange-ryb"><strong>https://pinata.cloud</strong></a> to upload your
+											bitmosaic text files.
+										</p>
+										<p class="ltc-coral-pink">
+											<strong>Keep your recovery information in a safe place
+												and never share it</strong>.
+										</p>
+										<p>
+											You can learn more about IPFS at <a href="https://ipfs.io" target="_blank" class="ltc-orange-ryb"><strong>https://ipfs.io</strong></a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><svg
+				xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32">
+				<path class="scroll-to-top-btn-icon" d="M30,22.656l-14-13-14,13" />
+			</svg></a>
+	</div>
+
+	<script src="./js/jquery-3.5.1.min.js?5064"></script>
+	<script src="./js/bootstrap.bundle.min.js?9389"></script>
+	<script src="./js/blocs.min.js?2274"></script>
+	<script src="./js/lazysizes.min.js" defer></script>
+	<script src="./js/bitmosaic.js"></script>
+
+
+</body>
+
+</html>
